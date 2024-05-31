@@ -31,24 +31,20 @@ public:
     bool isPalindrome(int x) {
         if(x < 0) return false;
         
-        unsigned int temp,flipped = 0, count = 0, tempx = x;
+        unsigned int flipped = 0, tempx = x;
 
-        while(x != 0){
-            temp = x % 10;
+        while(x != 0){            
+            flipped = flipped * 10 + x % 10;
             x = x / 10;
-            flipped = flipped * 10 + temp;
-            count++;
         }
-        if(tempx == flipped)
-            return true;
-        return false;
+        return (tempx == flipped);
     }
 };
 
 int main()
 {
     palindrome p;
-    if(p.isPalindrome(1234567899))
+    if(p.isPalindrome(121))
         cout << "palindrome";
     else
         cout << "no";
